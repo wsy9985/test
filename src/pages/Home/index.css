@@ -1,0 +1,27 @@
+.showHome {
+  position: relative;
+}
+.showHome h1,
+.showHome h2,
+.showHome h6 {
+  text-align: center;
+}
+.showHome h1 {
+  font-size: 45px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+.showHome h2 {
+  font-size: 25px;
+}
+.showHome h2 :last-of-type {
+  margin-bottom: 50px;
+}
+.showHome img {
+  left: 37%;
+  top: 0;
+  position: relative;
+  width: 25%;
+}
+/*# sourceMappingURL=./index.css.map */
+/*# sourceMappingURL=./index.css.map */
