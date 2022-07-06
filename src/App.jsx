@@ -14,8 +14,10 @@ export default function App() {
         <div className='container'>
           <Sider/>
           <Layout>
-          <Content  style={{boxSizing:'border-box',
-            padding:'15px 40px',display:'flex',flexDirection:'column',
+          <Content  
+            style={{boxSizing:'border-box',
+            padding:'15px 40px',display:'flex',
+            flexDirection:'column',
             height:"calc(100vh - 102px)"
           }}
           >

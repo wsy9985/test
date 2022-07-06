@@ -7,4 +7,13 @@
   background-image: url("../../../img/8.webp");
   background-size: cover;
 }
+.means .password_change {
+  text-align: left;
+  color: black;
+  font-size: 20px;
+  position: relative;
+  left: 200px;
+  padding: 20px 0;
+  font-family: Alibaba PuHuiTi;
+}
 /*# sourceMappingURL=./modify.css.map */

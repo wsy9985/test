@@ -22,8 +22,10 @@ export const ArticleUpdateApi = (params) =>request.put('/article/update',params)
 export const ArticleDelApi = (params) => request.post('/article/remove',params)
 
 // 获取用户资料
-export const GetUsersData = (params) => request.get('/info')
+export const GetUsersDataApi = () => request.get('/info')
 
+// 修改用户资料
+export const ChangeUsersDataApi = (params) =>request.put('/info',params)
 
 /* 
     axios.get({

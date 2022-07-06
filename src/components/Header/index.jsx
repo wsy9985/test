@@ -30,13 +30,21 @@ export default function() {
 
   const logOut = () =>{
     message.success('退出成功,即将返回登录页')
-    localStorage.clear(); // 清楚登录保存缓存
-    sessionStorage.clear()
+    localStorage.clear();  // 清除登录保存缓存
+    sessionStorage.clear() // 清除会话存储
     setTimeout(()=> navigate('/login'),1500)
   }
 
+  const dataOut = () =>{
+    setTimeout(()=> navigate('/app/setting/modify'),500)
+  }
+
+  const showImg = () =>{
+    localStorage.getItem('avatar')
+  }
+
   const items = [
-    {key: '1',label: (<span style={{textAlign:'center',display:'block'}}>修改资料</span>),},
+    {key: '1',label: (<span onClick={dataOut} style={{textAlign:'center',display:'block'}}>修改资料</span>),},
     {key: '2',label: (<hr style={{color:'white',fontSize:'10px',margin:'0 ', padding:'0',width:'100%'}}/>),},
     {key: '3', label: (<span onClick={logOut} style={{textAlign:'center',display:'block'}}>退出登录</span>),},
   ]
@@ -60,7 +68,7 @@ export default function() {
           <div className='search-items'>
               <SearchOutlined style={{marginTop:'25px'}}/>
               <span>
-                  <Input placeholder="周杰伦新专辑" />
+                  <Input placeholder="周杰伦专辑" />
               </span>
               
           </div>
@@ -70,7 +78,7 @@ export default function() {
             <Dropdown overlay={menu}>
             <a className='ant-dropdown-link'  onClick={e => e.preventDefault()}>
               <Space>
-                <img src={avatar} className="right_avator" />
+                <img src={avatar} onClick={showImg} className="right_avator" />
                 <span>{username}</span>
               <DownOutlined />
               </Space>
