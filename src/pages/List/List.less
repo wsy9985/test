@@ -1,0 +1,49 @@
+.List_table{
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        /* 滚动条样式 */
+        width: 8px;
+        height: 6px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        /* 滚动条轨道 */
+        box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+        border-radius: 10px;
+        background-color: #EDEDED;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        /* 滚动条里面小方块 */
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px rgba(0,0,0,.3);
+        background-color: silver;
+    }
+
+    .table_title{
+        color: #333;
+        &:hover{
+            color:#1890ff;
+        }
+    }
+    .ant-pagination{
+        padding-right: 30px;
+        padding-top: 20px;
+        
+    }
+    .title{
+        /* 表格宽度 */
+        padding-top: 6px;
+        height: 53px;
+        
+    }
+    .title_text{
+        /* 去除table中内置文本高度 */
+        height: 0px;
+    }
+}
