@@ -128,6 +128,8 @@ export default function Modify() {
           </Button>
         </Form.Item>
       </Form>
+      <div className="push_img">
+      <h3 style={{color: 'black',fontSize: '18px'}}>点此修改头像：</h3>
       <Upload
         name="avatar" // 与后端协约一致,不需要在api里做配置
         listType="picture-card"
@@ -151,6 +153,8 @@ export default function Modify() {
           uploadButton
         )}
       </Upload>
+      </div>
+      
     </div>
   );
 }

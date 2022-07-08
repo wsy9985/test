@@ -35,6 +35,12 @@
 .header .right-header .search-items {
   padding: 0 12px;
 }
+.header .right-header .search-items a {
+  color: white;
+}
+.header .right-header .search-items a :hover {
+  color: #1890ff;
+}
 .header .right-header .search-items span {
   float: left;
   display: block;
@@ -46,7 +52,7 @@
   margin-right: 15px;
 }
 .header .right-header .space-item :hover {
-  color: #1890ff !important;
+  color: #1890ff;
 }
 .header .right-header .space-item .ant-dropdown-link {
   display: block;

@@ -1,5 +1,5 @@
 import React, {useState , useEffect}from 'react'
-import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined} from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 import { useLocation } from 'react-router-dom';
 
@@ -27,9 +27,6 @@ export default function Bread() {
                 break;
             case '/app/users':
                 setBreadName('用户管理');
-                break;
-            case '/app/datas':
-                setBreadName('电商管理');
                 break;
             case '/app/datas/category':
                 setBreadName('品类管理');

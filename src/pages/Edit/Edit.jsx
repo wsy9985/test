@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
   Button,
-  Descriptions,
   Modal,
   PageHeader,
-  Checkbox,
   Form,
   Input,
   message,
@@ -12,13 +10,12 @@ import {
 import moment from "moment";
 import "@wangeditor/editor/dist/css/style.css";
 import { ArticleAddApi, ArticleSearchApi, ArticleUpdateApi } from "../../request/api";
-import { useParams,useNavigate,useLocation } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 
 import { Editor, Toolbar } from "@wangeditor/editor-for-react";
 
 function Edit() {
   const [form] = Form.useForm();
-  const location = useLocation();
   const [title,setTitle] = useState("")
   const [subTitle,setSubTitle] = useState("")
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -26,9 +23,6 @@ function Edit() {
   const [html, setHtml] = useState(""); /* <p>hello</p> */
   const params = useParams();
   const navigate = useNavigate()
-
-  // 模拟 ajax 请求，异步设置 html
-  
 
   const toolbarConfig = {};
   const editorConfig = {
@@ -95,7 +89,6 @@ function Edit() {
         }
       })
       .catch(() => false);
-    //  setIsModalVisible(false);
   };
 
 

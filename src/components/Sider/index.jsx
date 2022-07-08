@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {
-  AppstoreOutlined,
   HomeOutlined,
   LaptopOutlined,
   UserOutlined,
   EditOutlined,
-  MailOutlined,
   BarsOutlined,
   ReadOutlined,
   ApartmentOutlined,
@@ -14,8 +12,6 @@ import {
 import { Menu } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../Sider/index.css";
-
-const { subMenu } = Menu;
 
 const items = [
   getItem("首页", "app/home", <HomeOutlined />),
@@ -42,21 +38,19 @@ function getItem(label, key, icon, children, type) {
         type,
     };
 }
+window.timer = null;
 
 export default function Sider() {
-    const foldArr = [];
-    let keyNum = 0
+    const rootSubmenuKeys = ['app/datas', 'app/setting'];
     const navigate = useNavigate();
     const location = useLocation();
     const [defaultKey, setDefaultKey] = useState("");
     const [openKeys, setOpenKeys] = useState([]);
-    // const [openKey, setOpenKey] = useState([]);
-    const [defaultSubKey, setDefaultSubKey] = useState("app/datas/category");
 
   // componentDidMount
   useEffect(() => {
-    // console.log(items);
     let path = location.pathname;
+    console.log(path);
     // 获取三级路由key值
     let key0 = path.split("/")[3];
     // 获取二级路由key值
@@ -66,45 +60,28 @@ export default function Sider() {
     if (key && !key0) {
       // 利用正则表达式保障路径
       setDefaultKey("app/" + key.replace(/[^a-zA-Z]/g,''));
-      // setDefaultKey("app/" + key);
-      // setOpenKeys("app/" + key)
     } else if (key1 + "" === "app" && !key) {
       setDefaultKey("app/home");
+    } 
+    if(key0){
+      setDefaultKey("app/"+key+'/'+key0);
+      setOpenKeys(["app/"+key]) //......
     }
-    if (key0) {
-        // console.log(key0);
-        if( key === 'datas'){
-            console.log(key + '');
-            items[5].children.forEach((item,i)=>{
-                foldArr[i] = item.key
-                console.log(foldArr);
-            })  
-        }
-        setDefaultKey("app/" +key +'/' + key0);
-        setDefaultSubKey("app/"+key +'/' + key0);
-     }   
-
-
-    if(location.pathname === '/app/datas/category'){
-        setOpenKeys(foldArr[0]);
-        // onOpenChange(foldArr[0])
-        // setDefaultKey('app/datas')
-    }else if(location.pathname === '/app/datas/goods'){
-        setOpenKeys(foldArr[1] );
-        // onOpenChange(foldArr[1])
-        // setDefaultKey('app/datas')
-    }
-  }, [location.pathname]);
-
+  },[location.pathname])
 
   const handleClick = (e) => {
     navigate("/" + e.key);
     setDefaultKey(e.key);
   };
 
-  const onOpenChange = (openKeysIn) => {
-    setOpenKeys(openKeysIn );
-   
+  // 打开新的父级菜单时关闭最近的父级菜单
+  const onOpenChange = (keys) => {
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      setOpenKeys(keys);
+    } else {
+      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    }
   };
 
   return (
@@ -113,7 +90,6 @@ export default function Sider() {
         onClick={handleClick}
         style={{ width: 256, height: "100%", width: "200px" }}
         selectedKeys={[defaultKey]}
-        // selectopenkeys={[defaultSubKey]}
         mode="inline"
         items={items}
         onOpenChange={onOpenChange}

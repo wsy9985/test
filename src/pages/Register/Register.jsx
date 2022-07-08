@@ -1,6 +1,6 @@
 import React from 'react'
 import './register.css'
-import { Button, Checkbox, Form, Input, message } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link,useNavigate } from 'react-router-dom';
 import {RegisterApi} from '../../request/api'

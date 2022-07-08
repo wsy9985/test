@@ -58,6 +58,8 @@ const Users = () => {
     let [keyName, setKeyName] = useState(null); // 查询时记录输入框value
     
     const confirm = Modal.confirm;
+    const [email, setEmail] = useState()
+    const [mobile, setMobile] = useState()
     const [isModalVisible, setIsModalVisible] = useState(false); 
     const [isModalVisible2, setIsModalVisible2] = useState(false);
     
@@ -141,8 +143,9 @@ const Users = () => {
 
     /* 修改记录的回调 */
     const update = (record) => {
-        console.log(record.id);
-        setKeyid(record.id)    
+        setKeyid(record.id)   
+        setEmail(record.email) 
+        setMobile(record.mobile)
         setIsModalVisible2(true);
     }
 
@@ -362,9 +365,7 @@ const Users = () => {
                     wrapperCol={{
                         span: 16,
                     }}
-                    initialValues={{
-                        remember: true,
-                    }}
+                    initialValues={{email,mobile}}
                     onFinish={handleOk2}
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"

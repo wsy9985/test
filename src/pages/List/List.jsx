@@ -1,6 +1,6 @@
 import React, {useEffect, useState}from 'react'
 import './List.css'
-import { Space, Table, Button,Pagination ,Modal,message} from 'antd';
+import { Space, Table, Button,Modal,message} from 'antd';
 import {ArticleListApi,ArticleDelApi} from '../../request/api'
 import moment from 'moment';
 import {useNavigate} from 'react-router-dom'
@@ -8,7 +8,7 @@ import {useNavigate} from 'react-router-dom'
  function MyTitle(props) {
   return (
       <div>
-          <a className='table_title' href={'http://codesohigh.com:8765/article/' + props.id} target='_blank' >{props.title}</a>
+          <a className='table_title' href={'http://codesohigh.com:8765/article/' + props.id} target='_blank' rel="noreferrer">{props.title}</a>
           <p style={{ color: '#999' }}>{props.subTitle}</p>
       </div>
   )

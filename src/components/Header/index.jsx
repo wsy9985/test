@@ -1,5 +1,5 @@
-import React, {useState, Component, useEffect } from 'react'
-import  {SearchOutlined, DownOutlined, SmileOutlined,QuestionCircleOutlined,BellOutlined,UserOutlined,FormOutlined} from '@ant-design/icons'
+import React, {useState, useEffect } from 'react'
+import  {SearchOutlined, DownOutlined, } from '@ant-design/icons'
 import { Dropdown, Menu, Space ,Input, message} from 'antd';
 import {useNavigate} from 'react-router-dom'
 import './index.css'
@@ -11,6 +11,7 @@ import logo from '../../img/2.png'
 
 export default function() {
   const navigate = useNavigate();
+  const onSearch = (value) => console.log(value);
   const [avatar,setAvatar] = useState(defaultAvatar);
   const [username,setUsername] = useState('游客');
 
@@ -43,6 +44,10 @@ export default function() {
     localStorage.getItem('avatar')
   }
 
+  const go = () =>{
+
+  }
+
   const items = [
     {key: '1',label: (<span onClick={dataOut} style={{textAlign:'center',display:'block'}}>修改资料</span>),},
     {key: '2',label: (<hr style={{color:'white',fontSize:'10px',margin:'0 ', padding:'0',width:'100%'}}/>),},
@@ -66,9 +71,15 @@ export default function() {
 
       <div className='right-header'>
           <div className='search-items'>
-              <SearchOutlined style={{marginTop:'25px'}}/>
-              <span>
-                  <Input placeholder="周杰伦专辑" />
+              <a href="" onClick={go} target="_blank">
+                <SearchOutlined />
+              </a>
+              
+              <span className='shrink'>
+                  <Input style={{width:0,display:'none'}}
+                    placeholder="周杰伦专辑" 
+                    
+                  />
               </span>
               
           </div>
